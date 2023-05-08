@@ -45,7 +45,10 @@ app.post('/auth/google/refresh-token', async (req, res) => {
     res.status(400).json({ message: "Failed to refresh token" });
   }
 });
-
+app.get('/',(req,res)=>{
+  res.setHeader("Access-Control-Allow-Credentials","true");
+  res.send("API is running..");
+});
 app.use('/user',userRoutes)
 app.use('/dashboard',dashboard)
 
